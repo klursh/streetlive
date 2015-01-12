@@ -1,0 +1,9 @@
+<% content_for :title do %>
+再生数の多い動画ランキング
+<% end %>
+
+<%= render partial: "ranking", locals: { movies: @movies } %>
+
+<% content_for :sidebar do %>
+<%= render partial: "my/sidebar" %>
+<% end %>

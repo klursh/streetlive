@@ -1,0 +1,23 @@
+<%- scout  = current_user.scout %>
+<%- artist = current_user.artist %>
+<div class="well sidebar-nav" id="my-sidebar">
+  <ul class="nav nav-list">
+    <% if artist %>
+    <li><%= link_to "マイページ", my_artist_path %></li>
+    <li><%= link_to "アーティストプロフィール", artist_path(artist) %></li>
+    <li><%= link_to "動画管理", my_movies_path %></li>
+    <li><%= link_to "プロフィール編集", edit_artist_path(artist) %></li>
+    <% elsif scout %>
+    <li><%= link_to "マイページ", my_scout_path %></li>
+    <li><%= link_to "スカウトプロフィール", scout_path(scout) %></li>
+    <li><%= link_to "トップ動画 - 再生数", movies_rankings_view_path %></li>
+    <li><%= link_to "トップアーティスト - アクセス数", artists_rankings_view_path %></li> 
+    <li><%= link_to "トップアーティスト - メッセージ数", artists_rankings_message_path %></li> 
+    <% end %>
+    <li><%= link_to "登録情報", my_info_path %></li>
+    <% unless artist || scout %>
+    <li><%= link_to "アーティスト登録", new_artist_path %></li>
+    <li><%= link_to "スカウト登録", new_scout_path %></li>
+    <% end %>
+  </ul>
+</div>

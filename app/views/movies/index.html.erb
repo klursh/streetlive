@@ -1,0 +1,13 @@
+<% content_for :title do %>
+<%= @artist.name %>さんの投稿
+<% end %>
+
+<div>
+  <%= render partial: "movies/list",
+             locals: { movies: @movies,
+                       show_artist: false } %>
+</div>
+
+<% content_for :sidebar do %>
+<%= render partial: "artists/panel", locals: { artist: @artist } %>
+<% end %>

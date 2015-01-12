@@ -1,0 +1,31 @@
+<%- show_artist = true if local_assigns[:show_artist].nil? -%>
+<%- manage = false if local_assigns[:manage].nil? -%>
+<ul class="movies-list list-inline">
+  <% movies.each do |movie| %>
+  <li>
+    <% if manage %>
+    <div class="pull-right">
+      <%= link_to "[編集]", edit_movie_path(movie) %>
+      <%= link_to "[削除]", movie_path(movie),
+                            method: :delete,
+                            data: { confirm: t(".confirm", default: t("helpers.links.confirm", default: "Are you sure?")) } %>
+
+    </div>
+    <% end %>
+    <% if show_artist %>
+    <div class="movies-list-artist">
+      <%= link_to "#{movie.artist.name} さん", artist_path(movie.artist) %>
+    </div>
+    <% end %>
+    <%= link_to movie_path(movie) do %>
+    <img src="http://img.youtube.com/vi/<%= movie.youtube_video_id %>/hqdefault.jpg" width="160" height="120">
+    <div class="movies-list-title">
+      <%= movie.title %>
+    </div>
+    <% end %>
+    <div class="movies-list-created">
+      <%= movie.created_at.to_date %> 投稿
+    </div>
+  </li>
+  <% end %>
+</ul>

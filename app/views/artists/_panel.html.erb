@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      アーティスト
+    </div>
+  </div>
+  <div class="panel-body clearfix">
+    <%# ?sz=n はGoogleの画像のときだけ！ %>
+    <img src="<%= artist.image %>?sz=60" width="60" height="60" class="pull-left">
+    <div id="artist-panel-name">
+      <%= link_to "#{artist.name}さん", artist_path(artist) %><br>
+    </div>
+    <div id="artist-panel-introduction">
+      <%= artist.introduction.gsub(/(?<=\A.{50}).+\z/, "...") %>
+    </div>
+  </div>
+</div>

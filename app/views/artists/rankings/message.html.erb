@@ -1,0 +1,9 @@
+<% content_for :title do %>
+メッセージ数の多いアーティストランキング
+<% end %>
+
+<%= render partial: "ranking", locals: { artists: @artists } %>
+
+<% content_for :sidebar do %>
+<%= render partial: "my/sidebar" %>
+<% end %>

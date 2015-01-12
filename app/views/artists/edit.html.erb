@@ -1,0 +1,20 @@
+<%- model_class = Artist -%>
+<% content_for :title do %>
+<%=t '.title', default: [:'helpers.titles.edit', 'Edit %{model}'], model: model_class.model_name.human.titleize %>
+<% end %>
+
+<%= render partial: "form", locals: { artist: @artist } %>
+
+<div class="clearfix">
+  <div class="pull-right">
+    <%= link_to t("artists.destroy", default: t("helpers.links.destroy")),
+                  artist_path(@artist),
+                  method: "delete",
+                  data: { confirm: t(".confirm", default: t("helpers.links.confirm", default: "Are you sure?")) },
+                  class: "btn btn-danger" %>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<%= render partial: "my/sidebar" %>
+<% end %>

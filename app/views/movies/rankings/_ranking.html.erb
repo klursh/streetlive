@@ -1,0 +1,17 @@
+<ol>
+  <% movies.each do |movie| %>
+  <li>
+    <div class="clearfix" id="movies-ranking-movie">
+      <%= link_to movie_path(movie) do %>
+      <img src="http://img.youtube.com/vi/<%= movie.youtube_video_id %>/hqdefault.jpg" width="120" height="90" class="pull-left">
+      <div id="movies-ranking-movie-title">
+        <%= movie.title %>
+      </div>
+      <% end %>
+      <div id="movies-ranking-movie-description">
+        <%= movie.description.gsub(/(?<=\A.{140}).+\z/, "...") %>
+      </div>
+    </div>
+  </li>
+  <% end %>
+</ol>

@@ -1,0 +1,9 @@
+<%- model_class = Scout -%>
+<% content_for :title do %>
+スカウト登録
+<% end %>
+<%= render partial: "form", locals: { scout: @scout } %>
+
+<% content_for :sidebar do %>
+<%= render partial: "my/sidebar" %>
+<% end %>

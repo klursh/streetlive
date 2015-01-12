@@ -1,0 +1,12 @@
+<%- model_class = Movie -%>
+<% content_for :title do %>
+<%=t ".title", default: [:"helpers.titles.edit", "Edit %{model}"], model: model_class.model_name.human.titleize %>
+<% end %>
+
+<iframe src="http://www.youtube.com/embed/<%= @movie.youtube_video_id %>?rel=0" width="576" height="360" frameborder="0" allowfullscreen></iframe>
+
+<%= render partial: "form", locals: { movie: @movie } %>
+
+<% content_for :sidebar do %>
+<%= render partial: "my/sidebar" %>
+<% end %>

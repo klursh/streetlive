@@ -1,0 +1,16 @@
+<% content_for :title do %>
+マイページ
+<% end %>
+
+<div class="page-header">
+  <h3>新着メッセージ</h3>
+</div>
+
+
+<% @artist.messages.order(created_at: :desc).each do |message| %>
+<%= render partial: "messages/message", locals: { message: message } %>
+<% end %>
+
+<% content_for :sidebar do %>
+<%= render partial: "sidebar" %>
+<% end %>

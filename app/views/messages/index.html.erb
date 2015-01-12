@@ -1,0 +1,19 @@
+<% content_for :title do %>
+<%= @artist.name %>さんのメッセージ帳
+<% end %>
+
+<div class="clearfix">
+  <div class="text-center">
+    <%= link_to "メッセージを残す", new_artist_message_path(@artist),
+                                    class: "btn btn-primary" %>
+  </div>
+</div>
+<div>
+  <% @messages.each do |message| %>
+  <%= render partial: "message", locals: { message: message } %>
+  <% end %>
+</div>
+
+<% content_for :sidebar do %>
+<%= render partial: "artists/panel", locals: { artist: @artist } %>
+<% end %>

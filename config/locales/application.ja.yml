@@ -1,0 +1,74 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザ
+      artist: アーティスト
+      scout: スカウト
+      movie: 動画
+      message: メッセージ
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        introduction: 自己紹介
+        created_at: 登録日時
+        updated_at: 更新日時
+        google_uid: Google UID
+        google_token: Google token
+        expires_at: Google token 有効期限
+        google_refresh_token: Google refresh token
+        artist_id: アーティストID
+        artist: アーティスト
+        scout_id: スカウトID
+        scout: スカウト
+        image: 画像
+      artist:
+        name: 名前
+        view_count: アクセス数
+        location: ロケーション
+        created_at: 登録日時
+        updated_at: 更新日時
+        introduction: 自己紹介
+        image: 画像
+        email: 連絡先アドレス
+      scout:
+        company: 会社
+        last_name: 姓
+        first_name: 名
+        zip: 郵便番号
+        prefecture: 都道府県
+        city: 市町村
+        address: 番地
+        building: 建物名
+        email: 連絡先アドレス
+        phone: 電話番号
+        created_at: 登録日時
+        updated_at: 更新日時
+      movie:
+        artist_id: アーティストID
+        artist: アーティスト
+        youtube_video_id: YouTube video ID
+        view_count: 再生回数
+        title: タイトル
+        description: 説明文
+        created_at: 投稿日時
+        updated_at: 更新日時
+      message:
+        artist_id: アーティストID
+        artist: アーティスト
+        sender_id: 投稿者ID
+        sender: 投稿者
+        content: 内容
+        created_at: 投稿日時
+        updated_at: 更新日時
+        response_to_id: 返信先ID
+        response_to: 返信先
+
+  users:
+    destroy: 退会する
+  artists:
+    destroy: アーティスト登録解除
+  scouts:
+    destroy: スカウト登録解除
+  messages:
+    submit: 送信

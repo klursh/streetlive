@@ -1,0 +1,9 @@
+<%- model_class = Artist -%>
+<% content_for :title do %>
+アーティスト登録
+<% end %>
+<%= render partial: "form", locals: { artist: @artist } %>
+
+<% content_for :sidebar do %>
+<%= render partial: "my/sidebar" %>
+<% end %>

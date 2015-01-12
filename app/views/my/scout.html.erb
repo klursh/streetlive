@@ -1,0 +1,14 @@
+<% content_for :title do %>
+マイページ
+<% end %>
+
+<div class="page-header">
+  <h3>新着動画</h3>
+</div>
+<div>
+  <%= render partial: "movies/list", locals: { movies: @movies } %>
+</div>
+
+<% content_for :sidebar do %>
+<%= render partial: "sidebar" %>
+<% end %>

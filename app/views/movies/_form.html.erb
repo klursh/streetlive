@@ -1,0 +1,8 @@
+<%= simple_form_for shallow_args(movie.artist, movie), html: { class: "form-horizontal" } do |f| %>
+<%= f.input :youtube_video_id, as: :hidden %>
+<%= f.input :title %>
+<%= f.input :description %>
+<%= f.submit nil, class: "btn btn-primary" %>
+<%= link_to t(".cancel", default: t("helpers.links.cancel")),
+            my_movies_path, class: "btn btn-default" %>
+<% end %>

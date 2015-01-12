@@ -1,0 +1,5 @@
+<%- model_class = User -%>
+<% content_for :title do %>
+ようこそ！
+<% end %>
+<%= render partial: "form", locals: { user: @user } %>

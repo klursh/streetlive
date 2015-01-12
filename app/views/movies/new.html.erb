@@ -1,0 +1,33 @@
+<%- model_class = Movie -%>
+<% content_for :title do %>
+<%=t ".title", default: [:"helpers.titles.new", "New %{model}"], model: model_class.model_name.human.titleize %>
+<% end %>
+
+<div class="row">
+  <div class="col-md-7">
+    <div id="movie-youtube-video-area">
+      公開する動画を左の一覧から選択してください。<br>
+      YouTubeで非公開の動画は表示されません。
+    </div>
+    <div id="new-movie-form-area" class="hidden">
+      <%= render partial: "form", locals: { movie: @movie } %>
+    </div>
+  </div>
+
+  <div class="col-md-5">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">
+          YouTubeにアップロードした動画
+        </div>
+      </div>
+      <div class="panel-body">
+        <div id="new-movie-youtube-videos">
+          <div id="new-movie-youtube-loading">
+            <img src="/images/ajax-loader.gif">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

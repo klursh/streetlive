@@ -1,0 +1,45 @@
+<%- model_class = Scout -%>
+<% content_for :title do %>
+スカウトプロフィール
+<% end %>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:company) %>:</strong></dt>
+  <dd><%= @scout.company %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+  <dd><%= @scout.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><%= @scout.first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:zip) %>:</strong></dt>
+  <dd><%= @scout.zip %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:prefecture) %>:</strong></dt>
+  <dd><%= @scout.prefecture %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @scout.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @scout.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:building) %>:</strong></dt>
+  <dd><%= @scout.building %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @scout.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+  <dd><%= @scout.phone %></dd>
+</dl>
+
+<% if can? :manage, @scout %>
+<div class="pull-right">
+  <%= link_to t(".edit", :default => t("helpers.links.edit")),
+                edit_scout_path(@scout), :class => "btn btn-default" %>
+  <%= link_to t("scouts.destroy", default: t("helpers.links.destroy")),
+                scout_path(@scout),
+                method: "delete",
+                data: { confirm: t(".confirm", default: t("helpers.links.confirm", default: "Are you sure?")) },
+                class: "btn btn-danger" %>
+</div>
+<% end %>
+
+<% if current_user.try(:scout) == @scout %>
+<% content_for :sidebar do %>
+<%= render partial: "my/sidebar" %>
+<% end %>
+<% end %>

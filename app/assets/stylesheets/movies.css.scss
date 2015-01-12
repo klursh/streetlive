@@ -1,0 +1,76 @@
+// Place all the styles related to the movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.movies-list>li {
+  margin: 10px 15px;
+  width: 160px;
+  vertical-align: top;
+}
+
+.movies-list-artist {
+  text-align: right;
+}
+
+.movies-list-title {
+  margin-left: 4px;
+}
+
+.movies-list-created {
+  text-align: right;
+}
+
+#new-movie-youtube-videos {
+  height: 585px;
+  overflow: scroll;
+}
+
+#new-movie-youtube-loading {
+  padding-top: 40px;
+  text-align: center;
+}
+
+#new-movie-youtube-load-failed {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.new-movie-youtube-video {
+  margin-bottom: 15px;
+}
+.new-movie-youtube-video:hover {
+  background-color: lightyellow;
+  cursor: pointer;
+}
+
+.new-movie-youtube-video.title {
+  font-weight: bold;
+}
+
+
+#movie-description {
+  margin: 10px 0 0 10px;
+}
+
+#movie-movies>li {
+  margin: 10px 0;
+}
+
+.movie-movies-title {
+  margin-left: 88px;
+  margin-top: 2px;
+}
+
+
+#movies-ranking-movie {
+  margin: 0px 10px 20px 0;
+}
+
+#movies-ranking-movie-title {
+  padding-left: 130px;
+  font-size: 24px;
+}
+
+#movies-ranking-movie-description {
+  padding-left: 135px;
+}

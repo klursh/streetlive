@@ -1,0 +1,18 @@
+<div style="background-color:lightyellow;margin:10px 0;padding:5px;">
+  <% if message.sender.scout %>
+  <%= link_to message.sender.scout.name, scout_path(message.sender.scout) %>さん
+  <% elsif message.sender.artist %>
+  <%= link_to message.sender.artist.name, artist_path(message.sender.artist) %>さん
+  <% else %>
+  <%= link_to message.sender.name, user_path(message.sender) %>さん
+  <% end %>
+  <div>
+    <% if message.responds_to.present? %>
+    &gt;&gt;<%= message.responds_to_id %><br>
+    <% end %>
+    <%= br(message.content) %>
+  </div>
+  <div>
+    <%= message.created_at %>
+  </div>
+</div>

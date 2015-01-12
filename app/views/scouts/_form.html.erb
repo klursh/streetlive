@@ -1,0 +1,15 @@
+<%= simple_form_for scout, html: { class: "form-horizontal" } do |f| %>
+<%= f.input :company %>
+<%= f.input :last_name %>
+<%= f.input :first_name %>
+<%= f.input :zip, label: t("activerecord.attributes.scout.zip") + "(数字7桁)", maxlength: "7" %>
+<%= f.input :prefecture %>
+<%= f.input :city %>
+<%= f.input :address %>
+<%= f.input :building %>
+<%= f.input :email %>
+<%= f.input :phone, label: t("activerecord.attributes.scout.phone") + "(数字のみ)" %>
+<%= f.submit nil, class: "btn btn-primary" %>
+<%= link_to t(".cancel", default: t("helpers.links.cancel")),
+            my_scout_path, class: "btn btn-default" %>
+<% end %>

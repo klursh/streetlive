@@ -1,0 +1,8 @@
+<% content_for :title do %>
+メッセージを残す
+<% end %>
+<%= render partial: "form", locals: { message: @message } %>
+
+<% content_for :sidebar do %>
+<%= render partial: "artists/panel", locals: { artist: @artist } %>
+<% end %>

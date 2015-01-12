@@ -1,0 +1,76 @@
+<%- model_class = Artist -%>
+<% content_for :title do %>
+<%= @artist.name %>
+<% end %>
+
+<div class="clearfix">
+  <img src="<%= @artist.image %>?sz=100" width="100" height="100" class="pull-left">
+  <div id="artist-info">
+    <div id="artist-info-pad"></div>
+    <div>
+      <%= br(@artist.introduction) %>
+    </div>
+  </div>
+</div><!-- /#profile -->
+
+
+<div class="page-header">
+  <h3>投稿一覧</h3>
+</div>
+<div>
+  <%= render partial: "movies/list",
+             locals: { movies: @movies,
+                       show_artist: false } %>
+  <div class="pull-right">
+    <%= link_to "もっと見る", artist_movies_path(@artist),
+                              class: "btn btn-default" %>
+  </div>
+</div>
+
+
+
+<% content_for :sidebar do %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      詳細情報
+    </div>
+  </div>
+  <div class="panel-body">
+    登録日：<%= @artist.created_at.to_date %><br>
+    <%= model_class.human_attribute_name(:view_count) %>：<%= @artist.view_count %><br>
+    <% if current_user.try(:scout) %>
+    <%= model_class.human_attribute_name(:location) %>：<%= @artist.location %><br>
+    <%= model_class.human_attribute_name(:email) %>：<%= @artist.email %>
+    <% end %>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      このアーティストを応援！
+    </div>
+  </div>
+  <div class="panel-body">
+    <%= render partial: "shared/sns_share", locals: { title: @artist.name } %>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      メッセージ
+    </div>
+  </div>
+  <div class="panel-body">
+    <% @messages.each do |message| %>
+    <%= render partial: "messages/message", locals: { message: message } %>
+    <% end %>
+    <div class="pull-right">
+      <%= link_to "メッセージ帳へ", artist_messages_path(@artist),
+                                class: "btn btn-default" %>
+    </div>
+  </div>
+</div>
+
+<% end %><%# sidebar %>

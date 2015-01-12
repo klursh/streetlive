@@ -1,0 +1,17 @@
+<ol>
+  <% artists.each do |artist| %>
+  <li>
+    <div class="clearfix" id="artists-ranking-artist">
+      <%= link_to artist_path(artist) do %>
+      <img src="<%= artist.image %>?sz=100" width="100" height="100" class="pull-left">
+      <div id="artists-ranking-artist-name">
+        <%= artist.name %>
+      </div>
+      <% end %>
+      <div id="artists-ranking-artist-introduction">
+        <%= artist.introduction.gsub(/(?<=\A.{140}).+\z/, "...") %>
+      </div>
+    </div>
+  </li>
+  <% end %>
+</ol>

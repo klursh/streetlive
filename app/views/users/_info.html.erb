@@ -1,0 +1,28 @@
+<%- model_class = User -%>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= user.name %></dd>
+  <% if can? :manage, user %>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= user.email %></dd>
+  <% if user.artist %>
+  <dt><strong><%= model_class.human_attribute_name(:artist) %>登録:</strong></dt>
+  <dd><%= link_to user.artist.name, artist_path(user.artist) %></dd>
+  <% end %>
+  <% if user.scout %>
+  <dt><strong><%= model_class.human_attribute_name(:scout) %>登録:</strong></dt>
+  <dd><%= link_to user.scout.name, scout_path(user.scout) %></dd>
+  <% end %>
+  <% end %>
+  <dt><strong><%= model_class.human_attribute_name(:introduction) %>:</strong></dt>
+  <dd><%= br(user.introduction) %></dd>
+</dl>
+
+<% if can? :manage, user %>
+<div class="pull-right">
+  <%= link_to t(".edit", default: t("helpers.links.edit")),
+                edit_user_path(user), class: "btn btn-default" %>
+</div>
+<% end %>
+

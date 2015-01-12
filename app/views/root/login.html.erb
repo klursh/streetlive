@@ -1,0 +1,12 @@
+<% content_for :title do %>
+ログイン
+<% end %>
+
+<div id="login-main">
+  <p>
+    このページを閲覧するにはログインが必要です。
+  </p>
+  <p>
+    <%= link_to "Googleアカウントでログイン", user_omniauth_authorize_path(:google_oauth2) %>
+  </p>
+</div>

@@ -1,0 +1,69 @@
+<%- model_class = Movie -%>
+
+<% content_for :title do %>
+<%= @movie.title %>
+<% end %>
+
+<iframe width="576" height="360" src="//www.youtube.com/embed/<%= @movie.youtube_video_id %>?autoplay=1&controls=2&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+<div id="movie-description">
+  <%= br(@movie.description) %>
+</div>
+
+
+<% content_for :sidebar do %>
+
+<%= render partial: "artists/panel", locals: { artist: @movie.artist } %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      詳細情報
+    </div>
+  </div>
+  <div class="panel-body">
+    <%= model_class.human_attribute_name(:created_at) %>：<%= @movie.created_at %><br>
+    <%= model_class.human_attribute_name(:updated_at) %>：<%= @movie.updated_at %><br>
+    <%= model_class.human_attribute_name(:view_count) %>：<%= @movie.view_count %><br>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      この動画を応援！
+    </div>
+  </div>
+  <div class="panel-body">
+    <%= render partial: "shared/sns_share", locals: { title: @movie.title }  %>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      このアーティストの投稿
+    </div>
+  </div>
+  <div class="panel-body">
+    <ul id="movie-movies" class="list-unstyled">
+      <% @movies.each do |movie| %>
+      <li>
+        <div class="clearfix">
+          <%= link_to movie_path(movie) do %>
+          <img src="http://img.youtube.com/vi/<%= movie.youtube_video_id %>/hqdefault.jpg" width="80" height="60" class="pull-left">
+          <div class="movie-movies-title">
+            <%= movie.title %>
+          </div>
+          <% end %>
+        </div>
+      </li>
+      <% end %>
+      <div class="pull-right">
+        <%= link_to "もっと見る", artist_movies_path(@movie.artist),
+                                  class: "btn btn-default" %>
+      </div>
+    </ul>
+  </div>
+</div>
+
+
+<% end %><%# sidebar %>
+
